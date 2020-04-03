@@ -14,13 +14,31 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
  */
 
 export default function(nums) {
-    var maxSum;
+    
+  var maxSum;
+    var negativeIndexes = [];
     for (let i = 0; i < nums.length; i++) {
-      let start = 0;
-      for (let end = i+1; end <= nums.length; end++,start++) {
-        var sum = nums.slice(start,end).reduce((acc,curr) => acc + curr, 0);
-        if(maxSum === undefined || sum > maxSum)
+      if(nums[i] < 0)
+        negativeIndexes.push(i);
+      if(maxSum == undefined || nums[i] > maxSum)
+        maxSum = nums[i];
+    }
+
+    if(negativeIndexes.length == 0){
+      //Everything is positive, just sum all elements
+      return nums.reduce((acc,curr) => acc + curr, 0);
+    }
+
+    for (let i = 0; i < negativeIndexes.length; i++) {
+      let sum = 0;
+      let index = negativeIndexes[i];
+      
+      for (let j = index + 1; j < nums.length && sum >= 0; j++) {
+        sum += nums[j] //Sum next element until the sum is negative
+        
+        if(sum > maxSum){
           maxSum = sum;
+        }
       }
     }
 

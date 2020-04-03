@@ -17,11 +17,10 @@ export default function(nums) {
     var maxSum;
     for (let i = 0; i < nums.length; i++) {
       let start = 0;
-      for (let end = i + 1; end <= nums.length; end++) {
+      for (let end = i+1; end <= nums.length; end++,start++) {
         var sum = nums.slice(start,end).reduce((acc,curr) => acc + curr, 0);
         if(maxSum === undefined || sum > maxSum)
           maxSum = sum;
-        start++;
       }
     }
 

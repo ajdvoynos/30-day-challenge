@@ -13,34 +13,34 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
  * @return {number}
  */
 
-export default function(nums) {
-    
+export default function (nums) {
+
   var maxSum;
-    var negativeIndexes = [];
-    for (let i = 0; i < nums.length; i++) {
-      if(nums[i] < 0)
-        negativeIndexes.push(i);
-      if(maxSum == undefined || nums[i] > maxSum)
-        maxSum = nums[i];
-    }
+  var negativeIndexes = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < 0)
+      negativeIndexes.push(i);
+    if (maxSum == undefined || nums[i] > maxSum)
+      maxSum = nums[i];
+  }
 
-    if(negativeIndexes.length == 0){
-      //Everything is positive, just sum all elements
-      return nums.reduce((acc,curr) => acc + curr, 0);
-    }
+  if (negativeIndexes.length == 0) {
+    //Everything is positive, just sum all elements
+    return nums.reduce((acc, curr) => acc + curr, 0);
+  }
 
-    for (let i = 0; i < negativeIndexes.length; i++) {
-      let sum = 0;
-      let index = negativeIndexes[i];
-      
-      for (let j = index + 1; j < nums.length && sum >= 0; j++) {
-        sum += nums[j] //Sum next element until the sum is negative
-        
-        if(sum > maxSum){
-          maxSum = sum;
-        }
+  for (let i = 0; i < negativeIndexes.length; i++) {
+    let sum = 0;
+    let index = negativeIndexes[i];
+
+    for (let j = index + 1; j < nums.length && sum >= 0; j++) {
+      sum += nums[j] //Sum next element until the sum is negative
+
+      if (sum > maxSum) {
+        maxSum = sum;
       }
     }
+  }
 
-    return maxSum;
+  return maxSum;
 };

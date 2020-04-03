@@ -29,5 +29,10 @@ describe('Week1', function(){
       var result = maxSubarray(input);
       assert.equal(result, 11081);
     });
+
+    it('should handle all negative numbers', function(){
+      var input = [-1,-2,-5,-8];
+      assert.equal(maxSubarray(input), -1);
+    })
   });
 });

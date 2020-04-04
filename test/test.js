@@ -1,6 +1,8 @@
 import assert from "assert";
 import happy from './../week1/happy.js';
 import maxSubarray from './../week1/maximumSubarray.js';
+import moveZeroes from './../week1/moveZeroes.js';
+
 describe('Week1', function(){
   describe('happy', function(){
     it('should return true for 7', function(){
@@ -33,6 +35,22 @@ describe('Week1', function(){
     it('should handle all negative numbers', function(){
       var input = [-1,-2,-5,-8];
       assert.equal(maxSubarray(input), -1);
+    })
+
+  });
+
+  describe('moveZeroes', function(){
+    it('should move all 0\'s to back of array', function(){
+      var input = [0,1,0,3,12];
+      moveZeroes(input);
+      assert.deepEqual(input, [1,3,12,0,0]);
+    })
+
+    it('should handle two 0s in a row', function(){
+      var input = [0,0,1];
+      var expected = [1,0,0];
+      moveZeroes(input);
+      assert.deepEqual(input, expected);
     })
   });
 });

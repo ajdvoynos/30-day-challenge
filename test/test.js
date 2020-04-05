@@ -2,6 +2,7 @@ import assert from "assert";
 import happy from './../week1/happy.js';
 import maxSubarray from './../week1/maximumSubarray.js';
 import moveZeroes from './../week1/moveZeroes.js';
+import buyAndSellStock from './../week1/buyAndSellStock.js'
 
 describe('Week1', function(){
   describe('happy', function(){
@@ -51,6 +52,25 @@ describe('Week1', function(){
       var expected = [1,0,0];
       moveZeroes(input);
       assert.deepEqual(input, expected);
+    })
+  });
+  describe('buyAndSellStock', function(){
+    it('should return 7', function(){
+      var input = [7,1,5,3,6,4];
+      var expected = 7;
+      assert.equal(buyAndSellStock(input), expected);
+    })
+
+    it('should return 4', function(){
+      var input = [1,2,3,4,5];
+      var expected = 4;
+      assert.equal(buyAndSellStock(input), expected);
+    })
+
+    it('should return 0', function(){
+      var input = [7,6,4,3,1];
+      var expected = 0;
+      assert.equal(buyAndSellStock(input), expected);
     })
   });
 });

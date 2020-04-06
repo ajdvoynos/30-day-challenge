@@ -102,5 +102,23 @@ describe('Week1', function(){
       var actual = groupAnagrams(input);
       assert.deepEqual(actual,expected);
     })
+
+    it('should return whatever I say here XD', function(){
+      var input = ["mod","mop","pip","tug","hop","dog","met","zoe","axe","mug","fdr","for","fro","fdr","pap","ray","lop","nth","old","eva","ell","mci","wee","ind","but","all","her","lew","ken","awl","law","rim","zit","did","yam","not","ref","lao","gab","sax","cup","new","job","new","del","gap","win","pot","lam","mgm","yup","hon","khz","sop","has","era","ark"];
+      //The commented expected below is directly from leetcode. I need to reorder it to match the deepequal function...too lazy to create a custom assert function
+      // var expected = [["sop"],["hon"],["yup"],["mgm"],["pot"],["mci"],["eva"],["zit"],["did"],["pap"],["rim"],["gab"],["lop"],["awl","law"],["ref"],["sax"],["ell"],["khz"],["not"],["tug"],["for","fro"],["lao"],["mop"],["cup"],["pip"],["gap"],["has"],["dog"],["ark"],["ind"],["ray"],["era"],["axe"],["lam"],["zoe"],["hop"],["old"],["met"],["mug"],["nth"],["wee"],["all"],["but"],["ken"],["her"],["lew"],["new","new"],["mod"],["yam"],["job"],["win"],["fdr","fdr"],["del"]];
+      var expected = [["mod"],["mop"],["pip"],["tug"],["hop"],["dog"],["met"],["zoe"],["axe"],["mug"],["fdr", "fdr"],["for", "fro"],["pap"],["ray"],["lop"],["nth"],["old"],["eva"],["ell"],["mci"],["wee"],["ind"],["but"],["all"],["her"],["lew"],["ken"],["awl", "law"],["rim"],["zit"],["did"],["yam"],["not"],["ref"],["lao"],["gab"],["sax"],["cup"],["new", "new"],["job"],["del"],["gap"],["win"],["pot"],["lam"],["mgm"],["yup"],["hon"],["khz"],["sop"],["has"],["era"],["ark"]];
+      var actual = groupAnagrams(input);
+      assert.deepEqual(actual, expected)
+    });
+
+    //This one below is tricky...boo and bob both end up with "bo" in my current implementation XD
+    it('should handle boo and bob correctly', function(){
+      var input = ["mod","mop","pip","tug","hop","dog","met","zoe","axe","mug","fdr","for","fro","fdr","pap","ray","lop","nth","old","eva","ell","mci","wee","ind","but","all","her","lew","ken","awl","law","rim","zit","did","yam","not","ref","lao","gab","sax","cup","new","job","new","del","gap","win","pot","lam","mgm","yup","hon","khz","sop","has","era","ark"];
+      
+      var expected = [["sol"],["wow"],["gap"],["hem"],["yap"],["bum"],["ugh","ugh"],["aha"],["jab"],["eve"],["bop"],["lyx"],["jed"],["iva"],["rod"],["boo"],["brr"],["hog"],["nay"],["mir"],["deb","deb"],["aft"],["dis"],["yea"],["hos"],["rye"],["hey"],["doc"],["bob"],["eel"],["pen"],["job"],["max"],["oho"],["lye"],["ram"],["nap"],["elf"],["qua"],["pup","pup"],["let"],["gym"],["nam"],["bye"],["lon"]];
+      var actual = groupAnagrams(input);
+      assert.deepEqual(actual, expected)
+    });
   })
 });

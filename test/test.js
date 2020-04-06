@@ -114,11 +114,18 @@ describe('Week1', function(){
 
     //This one below is tricky...boo and bob both end up with "bo" in my current implementation XD
     it('should handle boo and bob correctly', function(){
-      var input = ["mod","mop","pip","tug","hop","dog","met","zoe","axe","mug","fdr","for","fro","fdr","pap","ray","lop","nth","old","eva","ell","mci","wee","ind","but","all","her","lew","ken","awl","law","rim","zit","did","yam","not","ref","lao","gab","sax","cup","new","job","new","del","gap","win","pot","lam","mgm","yup","hon","khz","sop","has","era","ark"];
+      var input = ["hos","boo","nay","deb","wow","bop","bob","brr","hey","rye","eve","elf","pup","bum","iva","lyx","yap","ugh","hem","rod","aha","nam","gap","yea","doc","pen","job","dis","max","oho","jed","lye","ram","pup","qua","ugh","mir","nap","deb","hog","let","gym","bye","lon","aft","eel","sol","jab"];
       
-      var expected = [["sol"],["wow"],["gap"],["hem"],["yap"],["bum"],["ugh","ugh"],["aha"],["jab"],["eve"],["bop"],["lyx"],["jed"],["iva"],["rod"],["boo"],["brr"],["hog"],["nay"],["mir"],["deb","deb"],["aft"],["dis"],["yea"],["hos"],["rye"],["hey"],["doc"],["bob"],["eel"],["pen"],["job"],["max"],["oho"],["lye"],["ram"],["nap"],["elf"],["qua"],["pup","pup"],["let"],["gym"],["nam"],["bye"],["lon"]];
+      var expected = [["hos"],["boo"],["nay"],["deb","deb"],["wow"],["bop"],["bob"],["brr"],["hey"],["rye"],["eve"],["elf"],["pup","pup"],["bum"],["iva"],["lyx"],["yap"],["ugh","ugh"],["hem"],["rod"],["aha"],["nam"],["gap"],["yea"],["doc"],["pen"],["job"],["dis"],["max"],["oho"],["jed"],["lye"],["ram"],["qua"],["mir"],["nap"],["hog"],["let"],["gym"],["bye"],["lon"],["aft"],["eel"],["sol"],["jab"]];
       var actual = groupAnagrams(input);
       assert.deepEqual(actual, expected)
     });
+
+    it('should handle empty string', function(){
+      var input = [""];
+      var expected = [[""]];
+      var actual = groupAnagrams(input);
+      assert.deepEqual(actual, expected);
+    })
   })
 });

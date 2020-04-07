@@ -4,6 +4,7 @@ import maxSubarray from './../week1/maximumSubarray.js';
 import moveZeroes from './../week1/moveZeroes.js';
 import buyAndSellStock from './../week1/buyAndSellStock.js';
 import groupAnagrams from './../week1/groupAnagrams.js';
+import countElements from "../week1/countElements.js";
 
 describe('Week1', function(){
   describe('happy', function(){
@@ -126,6 +127,38 @@ describe('Week1', function(){
       var expected = [[""]];
       var actual = groupAnagrams(input);
       assert.deepEqual(actual, expected);
-    })
+    });
+    
+  });
+
+  describe('countElements', function(){
+    it('should return 2', function(){
+      var input = [1,2,3];
+      var expected = 2;
+      var actual = countElements(input);
+      assert.equal(actual, expected);
+    });
+
+    it('should return 0', function(){
+      var input = [1,1,3,3,5,5,7,7];
+      var expected = 0;
+      var actual = countElements(input);
+      assert.equal(actual, expected);
+    });
+
+    it('should return 3', function(){
+      var input = [1,3,2,3,5,0];
+      var expected = 3;
+      var actual = countElements(input);
+      assert.equal(actual, expected);
+    });
+
+    it('should return 2', function(){
+      var input = [1,1,2,2];
+      var expected = 2;
+      var actual = countElements(input);
+      assert.equal(actual, expected);
+    });
   })
+
 });

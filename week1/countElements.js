@@ -34,8 +34,5 @@
  * @return {number}
  */
 export default function (arr) {
-  return arr.reduce((acc, curr) => {
-    if (arr.includes(curr + 1)) acc++;
-    return acc;
-  }, 0);
+  return arr.reduce((acc,curr) => arr.includes(curr+1) ? ++acc : acc, 0);
 }

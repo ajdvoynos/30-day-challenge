@@ -22,7 +22,7 @@
 // Input: arr = [1,1,2,2]
 // Output: 2
 // Explanation: Two 1s are counted cause 2 is in arr.
- 
+
 
 // Constraints:
 
@@ -33,13 +33,9 @@
  * @param {number[]} arr
  * @return {number}
  */
-export default function(arr){
-  var sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    if(arr.includes(element + 1)){
-      sum += 1;
-    }
-  }
-  return sum;
+export default function (arr) {
+  return arr.reduce((acc, curr) => {
+    if (arr.includes(curr + 1)) acc++;
+    return acc;
+  }, 0);
 }

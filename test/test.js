@@ -5,6 +5,7 @@ import moveZeroes from './../week1/moveZeroes.js';
 import buyAndSellStock from './../week1/buyAndSellStock.js';
 import groupAnagrams from './../week1/groupAnagrams.js';
 import countElements from "../week1/countElements.js";
+import middleLinkedList, { ListNode } from "../week2/middleLinkedList.js";
 
 describe('Week1', function(){
   describe('happy', function(){
@@ -161,4 +162,37 @@ describe('Week1', function(){
     });
   })
 
+});
+
+describe('Week2', function(){
+  describe('middleLinkedList', function(){
+    function arrayToList(array) {
+      var list = null;
+      for (var i = array.length - 1; i >= 0; i--){
+        list = new ListNode(array[i], list);
+      }
+      return list;
+    }
+    
+    it('should return 3', function(){
+      var input = arrayToList([1,2,3,4,5])
+      var expected = input.next.next;
+      var actual = middleLinkedList(input);
+      assert.equal(actual, expected);
+    })
+
+    it('should handle 1 element list', function(){
+      var input = arrayToList([1])
+      var expected = input;
+      var actual = middleLinkedList(input);
+      assert.equal(actual, expected);
+    })
+
+    it('should handle pair amount of elements', function(){
+      var input = arrayToList([1,2,3,4,5,6])
+      var expected = input.next.next.next;
+      var actual = middleLinkedList(input);
+      assert.equal(actual, expected);
+    })
+  })
 });

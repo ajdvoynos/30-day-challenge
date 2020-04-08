@@ -40,13 +40,12 @@ export function ListNode(val, next){
 }
 
 export default function(head){
-  if(head.next == null) return head;
   let element = head;
-  let counter = 0;
   let middleNode = head;
-  do {
+  let counter = 0;
+  while(!!element.next){
     if(++counter % 2) middleNode = middleNode.next;
     element = element.next;
-  } while (!!element.next);
+  };
   return middleNode;
 }

@@ -36,7 +36,7 @@
  */
 export default function(S,T){
   const reducer = (acc, curr) => curr == "#" ? acc.slice(0,-1) : acc.concat(curr);
-  let s = Array.from(S).reduce(reducer, '');
-  let t = Array.from(T).reduce(reducer, '');
+  let s = Array.prototype.reduce.apply(S, [reducer, '']);
+  let t = Array.prototype.reduce.apply(T, [reducer, '']);
   return s == t;
 }

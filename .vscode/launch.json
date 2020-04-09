@@ -24,6 +24,8 @@
         "bdd",
         "--timeout",
         "999999",
+        "--reporter",
+        "list",
         "--colors",
         "${workspaceFolder}/test"
       ],

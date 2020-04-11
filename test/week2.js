@@ -91,40 +91,47 @@ describe('Week2', function(){
       assert.equal(actual, expected);
     });
 
-    // it('should return 5 for basic scenario', function(){
-    //   var input = ArrayToBinaryTree([1,2,3,4,5,6,7,8]);
-    //   var expected = 5;
-    //   var actual = binaryTreeDiameter(input);
-    //   assert.equal(actual, expected);
-    // })
+    it('should return 5 for basic scenario', function(){
+      var input = ArrayToBinaryTree([1,2,3,4,5,6,7,8]);
+      var expected = 5;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
 
-    // it('should return 6 for basic scenario', function(){
-    //   var input = ArrayToBinaryTree([1,2,3,4,5,6,7,8,9,10,11,12]);
-    //   var expected = 6;
-    //   var actual = binaryTreeDiameter(input);
-    //   assert.equal(actual, expected);
-    // })
+    it('should return 6 for basic scenario', function(){
+      var input = ArrayToBinaryTree([1,2,3,4,5,6,7,8,9,10,11,12]);
+      var expected = 6;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
 
-    // it('should handle right balanced tree', function(){
-    //   var input = ArrayToBinaryTree([1,null,2,null,1]);
-    //   var expected = 2;
-    //   var actual = binaryTreeDiameter(input);
-    //   assert.equal(actual, expected);
-    // })
+    it('should handle right balanced tree', function(){
+      var input = ArrayToBinaryTree([1,null,2,null,1]);
+      var expected = 2;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
 
-    // it('should handle diameters that do not pass through root', function(){
-    //   var input = ArrayToBinaryTree([1,2,3,4,5,null,null,6,null,7,8,6.1,null,null,null,9,null,null,null,10]);
-    //   var expected = 7;
-    //   var actual = binaryTreeDiameter(input);
-    //   assert.equal(actual, expected);
-    // })
+    it('should handle diameters that do not pass through root', function(){
+      var input = ArrayToBinaryTree([1,2,3,4,5,null,null,6,null,7,8,6.1,null,null,null,9,null,null,null,10]);
+      var expected = 7;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
 
-    // it('should handle 1 element tree', function(){
-    //   var input = ArrayToBinaryTree([1]);
-    //   var expected = 1;
-    //   var actual = binaryTreeDiameter(input);
-    //   assert.equal(actual, expected);
-    // })
+    it('should handle 1 element tree', function(){
+      var input = ArrayToBinaryTree([1]);
+      var expected = 0;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
+
+    it('should handle null input', function(){
+      var input = null;
+      var expected = 0;
+      var actual = binaryTreeDiameter(input);
+      assert.equal(actual, expected);
+    })
 
   })
 });

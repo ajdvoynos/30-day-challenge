@@ -41,21 +41,14 @@ export function ArrayToBinaryTree(arr) {
  * @return {number}
  */
 export default function (root) {
-  //var map = new Map();
+  var maxWidth = 0;
+  if(root) depth(root);
+  function depth(node) {
+    var leftDepth = node.left == null ? 0 : depth(node.left) + 1;
+    var rightDepth = node.right == null ? 0 : depth(node.right) + 1;
+    maxWidth = Math.max(maxWidth, leftDepth + rightDepth);
+    return Math.max(leftDepth, rightDepth);
+  }
 
-  // depth(root, 0);
-
-  // function depth(node, currDepth){
-  //   var leftDepth = currDepth;
-  //   var rightDepth = currDepth;
-  //   if(node.left != null){
-  //     leftDepth = depth(node.left, currDepth + 1);
-  //   }
-  //   if(node.right != null){
-  //     rightDepth = depth(node.right, currDepth +1);
-  //   }
-  //   map.set(node, {leftDepth, rightDepth});
-  //   return Math.max(leftDepth, rightDepth);
-  // }
-
+  return maxWidth;
 };

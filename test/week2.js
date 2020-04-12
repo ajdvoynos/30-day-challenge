@@ -3,6 +3,7 @@ import middleLinkedList, { ListNode, arrayToList } from "../week2/middleLinkedLi
 import backspaceStringCompare from "../week2/backspaceStringCompare.js";
 import minStack from "../week2/minStack.js";
 import binaryTreeDiameter, { TreeNode, ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
+import lastStoneWeight from "../week2/lastStoneWeight.js";
 
 describe('Week2', function(){
   describe('middleLinkedList', function(){
@@ -133,5 +134,13 @@ describe('Week2', function(){
       assert.equal(actual, expected);
     })
 
+  })
+  describe('Last stone weight', function(){
+    it('should return 1', function(){
+      var input = [2,7,4,1,8,1];
+      var expected = 1;
+      var actual = lastStoneWeight(input);
+      assert.equal(actual, expected);
+    });
   })
 });

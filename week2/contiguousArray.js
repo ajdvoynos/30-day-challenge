@@ -16,51 +16,22 @@
  * @return {number}
  */
 export default function (nums) {
-  if(!nums.length) return 0;
+  if (!nums.length) return 0;
+  //Starting over! >.>
 
-  var nums2 = [...nums].reverse();
-  return Math.max(maximumLength(nums), maximumLength(nums2));
-  
-  function maximumLength(array){  
-    //find 1,0 combinations and replace them with -1's
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] + array[i + 1] == 1)
-      array.splice(i, 2, -1);
+  var ones = nums.reduce((acc, curr) => acc + curr);
+  var zeroes = nums.length - ones;
+  var maxLength = Math.min(ones, zeroes) * 2;
+  var minLength = Math.min(ones, zeroes) / 1.5;
+  if(minLength == 0) return 0;
+  for (let arraySize = maxLength; arraySize >= minLength; arraySize-=2) {
+    var targetSum = arraySize / 2;
+    var result = nums.slice(0, arraySize).reduce((acc,curr) => acc+curr);
+    for (let j = arraySize; (j < nums.length && result != targetSum); j++) {
+      result += nums[j];
+      result -= nums[j-arraySize];
     }
-  
-    var elToExpand;
-    do {
-      //find adjacent negative numbers and add them together 
-      var adjacentSum = 0;
-      var adjacentCount = 0;
-      for (let i = array.length - 1; i >= 0; i--) {
-        if (array[i] < 0){
-          adjacentSum += array[i];
-          adjacentCount += 1;
-        } 
-        
-        if (array[i - 1] == undefined && adjacentSum != 0 || array[i - 1] >= 0 && adjacentSum != 0) {
-          array.splice(i, adjacentCount, adjacentSum);
-          adjacentSum = 0;
-          adjacentCount = 0;
-        }
-      }
-      var negativeNumbers = array.reduce((acc,curr,index) => {
-        if(curr < 0) acc.push({index: index, count: curr});
-        return acc;
-      }, []);
-
-      negativeNumbers.sort((a, b) => a.count - b.count);
-      //Find the first(largest) subarray that can be expanded (with a 1 and 0 on each side)
-      elToExpand = negativeNumbers.find(element => array[element.index - 1] + array[element.index + 1] == 1);
-      if (elToExpand) {
-        //Expand the largest subarray
-        array.splice(elToExpand.index - 1, 3, elToExpand.count - 1);
-      }
-    } while (elToExpand);
-  
-    var result = Math.min(...array);
-    return result > 0 ? 0 : result * -2
+    if(result == targetSum) return result * 2;
   }
-  
+  return 0; //If we got this far, return 0
 };

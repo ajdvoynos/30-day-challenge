@@ -16,22 +16,18 @@
  * @return {number}
  */
 export default function (nums) {
-  if (!nums.length) return 0;
-  //Starting over! >.>
-
-  var ones = nums.reduce((acc, curr) => acc + curr);
-  var zeroes = nums.length - ones;
-  var maxLength = Math.min(ones, zeroes) * 2;
-  var minLength = Math.min(ones, zeroes) / 1.5;
-  if(minLength == 0) return 0;
-  for (let arraySize = maxLength; arraySize >= minLength; arraySize-=2) {
-    var targetSum = arraySize / 2;
-    var result = nums.slice(0, arraySize).reduce((acc,curr) => acc+curr);
-    for (let j = arraySize; (j < nums.length && result != targetSum); j++) {
-      result += nums[j];
-      result -= nums[j-arraySize];
+  //O(n) solution after reading it in leetcode
+  var map = new Map();
+  map.set(0, -1);
+  var counter = 0;
+  var maxWidth = 0;
+  for (let i = 0; i < nums.length; i++) {
+    counter += nums[i] ? 1 : -1;
+    if(!map.has(counter)){
+      map.set(counter, i);
+    } else{
+      maxWidth = Math.max(maxWidth, i - map.get(counter));
     }
-    if(result == targetSum) return result * 2;
   }
-  return 0; //If we got this far, return 0
+  return maxWidth;
 };

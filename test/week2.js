@@ -4,6 +4,7 @@ import backspaceStringCompare from "../week2/backspaceStringCompare.js";
 import minStack from "../week2/minStack.js";
 import binaryTreeDiameter, { TreeNode, ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
 import lastStoneWeight from "../week2/lastStoneWeight.js";
+import contiguousArray from "../week2/contiguousArray.js";
 
 describe('Week2', function(){
   describe('middleLinkedList', function(){
@@ -142,5 +143,33 @@ describe('Week2', function(){
       var actual = lastStoneWeight(input);
       assert.equal(actual, expected);
     });
+  })
+
+  describe('Contiguous binary array', function(){
+    // it('should return 2', function(){
+    //   var input = [0,1,0];
+    //   var expected = 2;
+    //   var actual = contiguousArray(input);
+    //   assert.equal(actual, expected);
+    // });
+    // it('should return 6', function(){
+    //   var input = [0,0,0,1,1,1];
+    //   var expected = 6;
+    //   var actual = contiguousArray(input);
+    //   assert.equal(actual, expected);
+    // });
+    // it('should return 8', function(){
+    //   var input = [0,0,0,1,1,1,0,0,1,0];
+    //   var expected = 8;
+    //   var actual = contiguousArray(input);
+    //   assert.equal(actual, expected);
+    // });
+    it('should handle right balanced odd numbered array', function(){
+      var input = [0,0,0,1,1,1,0,0,1,1,0,0,0,1,0,1,0,1,0,1,0];
+      var expected = 18;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+
   })
 });

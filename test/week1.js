@@ -5,7 +5,6 @@ import moveZeroes from './../week1/moveZeroes.js';
 import buyAndSellStock from './../week1/buyAndSellStock.js';
 import groupAnagrams from './../week1/groupAnagrams.js';
 import countElements from "../week1/countElements.js";
-import middleLinkedList, { ListNode } from "../week2/middleLinkedList.js";
 
 describe('Week1', function(){
   describe('happy', function(){

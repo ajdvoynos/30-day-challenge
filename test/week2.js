@@ -146,27 +146,63 @@ describe('Week2', function(){
   })
 
   describe('Contiguous binary array', function(){
-    // it('should return 2', function(){
-    //   var input = [0,1,0];
-    //   var expected = 2;
-    //   var actual = contiguousArray(input);
-    //   assert.equal(actual, expected);
-    // });
-    // it('should return 6', function(){
-    //   var input = [0,0,0,1,1,1];
-    //   var expected = 6;
-    //   var actual = contiguousArray(input);
-    //   assert.equal(actual, expected);
-    // });
-    // it('should return 8', function(){
-    //   var input = [0,0,0,1,1,1,0,0,1,0];
-    //   var expected = 8;
-    //   var actual = contiguousArray(input);
-    //   assert.equal(actual, expected);
-    // });
+    it('should return 2', function(){
+      var input = [0,1,0];
+      var expected = 2;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should return 6', function(){
+      var input = [0,0,0,1,1,1];
+      var expected = 6;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should return 8', function(){
+      var input = [0,0,0,1,1,1,0,0,1,0];
+      var expected = 8;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
     it('should handle right balanced odd numbered array', function(){
       var input = [0,0,0,1,1,1,0,0,1,1,0,0,0,1,0,1,0,1,0,1,0];
       var expected = 18;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should handle return 0', function(){
+      var input = [0,0];
+      var expected = 0;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should handle empty arrays', function(){
+      var input = [];
+      var expected = 0;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should handle 1 element arrays', function(){
+      var input = [1];
+      var expected = 0;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should return 6', function(){
+      var input = [0,0,1,0,0,0,1,1];
+      var expected = 6;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should return 94', function(){
+      var input = [1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,1,1,0,0,0,0,1,0,0,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,0,0,0,1,1,1,0,1,1,0,1,0,0,1,1,0,1,0,0,1,1,1,0,0,1,0,1,1,1,0,0,1,0,1,1];
+      var expected = 94;
+      var actual = contiguousArray(input);
+      assert.equal(actual, expected);
+    });
+    it('should return 68', function(){
+      var input = [0,1,0,1,1,1,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,0,1,0,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,1,1,0,1,0,0,1,1,1,1,1,0,0,1,1,1,1,0,0,1,0,1,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,1,1,0,1,1,1,1,0,1,1,0,0,0,1,1];
+      var expected = 68;
       var actual = contiguousArray(input);
       assert.equal(actual, expected);
     });

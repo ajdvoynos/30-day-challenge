@@ -16,32 +16,51 @@
  * @return {number}
  */
 export default function (nums) {
-  //find 1,0 combinations until I can't delete any more pairs or nums is empty
-  for (let i = 0; i < nums.length; i++) {
-    if(nums[i] + nums[i+1] == 1)
-      nums.splice(i, 2, -1);
-  }
-  var subGroups = [];
-  var innerCount = 0;
-  for (let i = nums.length-1; i >= 0; i--) {
-    if(nums[i] == -1){
-      innerCount++;
-    } else{
-      if(innerCount > 0){
-        nums.splice(i+1, innerCount, -1 * innerCount);
-        subGroups.push({index: i+1, count: -1 * innerCount});
-        innerCount = 0;
-      }
-    }
-  }
+  if(!nums.length) return 0;
 
-  subGroups.sort((a,b)=> a.count - b.count);
-  for (let i = 0; i < subGroups.length; i++) {
-    //check left side and right side and if they add up to 1, remove 1
-    let element = subGroups[i];
-    if(nums[element.index-1] + nums[element.index+1] == 1){
-      element.count -= 1;
-      nums.splice(element.index-1, 3,element.count)
+  var nums2 = [...nums].reverse();
+  return Math.max(maximumLength(nums), maximumLength(nums2));
+  
+  function maximumLength(array){  
+    //find 1,0 combinations and replace them with -1's
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] + array[i + 1] == 1)
+      array.splice(i, 2, -1);
     }
+  
+    var elToExpand;
+    do {
+      //find adjacent negative numbers and add them together 
+      var adjacentSum = 0;
+      var adjacentCount = 0;
+      for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i] < 0){
+          adjacentSum += array[i];
+          adjacentCount += 1;
+        } 
+        
+        if (array[i - 1] == undefined && adjacentSum != 0 || array[i - 1] >= 0 && adjacentSum != 0) {
+          array.splice(i, adjacentCount, adjacentSum);
+          adjacentSum = 0;
+          adjacentCount = 0;
+        }
+      }
+      var negativeNumbers = array.reduce((acc,curr,index) => {
+        if(curr < 0) acc.push({index: index, count: curr});
+        return acc;
+      }, []);
+
+      negativeNumbers.sort((a, b) => a.count - b.count);
+      //Find the first(largest) subarray that can be expanded (with a 1 and 0 on each side)
+      elToExpand = negativeNumbers.find(element => array[element.index - 1] + array[element.index + 1] == 1);
+      if (elToExpand) {
+        //Expand the largest subarray
+        array.splice(elToExpand.index - 1, 3, elToExpand.count - 1);
+      }
+    } while (elToExpand);
+  
+    var result = Math.min(...array);
+    return result > 0 ? 0 : result * -2
   }
+  
 };

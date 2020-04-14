@@ -5,6 +5,7 @@ import minStack from "../week2/minStack.js";
 import binaryTreeDiameter, { TreeNode, ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
 import lastStoneWeight from "../week2/lastStoneWeight.js";
 import contiguousArray from "../week2/contiguousArray.js";
+import stringShift from "../week2/stringShift.js";
 
 describe('Week2', function(){
   describe('middleLinkedList', function(){
@@ -226,5 +227,26 @@ describe('Week2', function(){
       assert.equal(actual, expected);
     });
 
-  })
+  });
+
+  describe('String shift', function(){
+    it('should return cab', function(){
+      var input = ["abc", [[0,1],[1,2]]];
+      var expected = "cab";
+      var actual = stringShift(...input);
+      assert.equal(actual, expected);
+    })
+    it('should return cab', function(){
+      var input = ["abc", [[0,2]]];
+      var expected = "cab";
+      var actual = stringShift(...input);
+      assert.equal(actual, expected);
+    })
+    it('should return bca', function(){
+      var input = ["abc", [[0,13]]];
+      var expected = "bca";
+      var actual = stringShift(...input);
+      assert.equal(actual, expected);
+    })
+  });
 });

@@ -52,13 +52,13 @@ export default function (s, shift) {
   }
   if(shifts < 0){
     //left shift
-    //remove the first character of s and append it to the end
+    //remove the first character(s) of s and append it to the end
     shifts = Math.abs(shifts);
     s = s.slice(shifts) + s.slice(0, shifts);
   }else{
     
     //right shift
-    //remove the last character of s and add it to the beginning
+    //remove the last character(s) of s and add it to the beginning
     s = s.slice(s.length - shifts, s.length) + s.slice(0, s.length - shifts);
   }
   return s;

@@ -1,6 +1,7 @@
 import assert from "assert";
 import productOfArray from "../week3/productOfArray.js";
 import validParenthesis from "../week3/validParenthesis.js";
+import numberOfIslands from "../week3/numberOfIslands.js";
 
 describe('Week3', function(){
   describe('productOfArray', function(){
@@ -96,7 +97,25 @@ describe('Week3', function(){
       var actual = validParenthesis(input);
       assert.equal(actual, expected);
     })
-
-    
+  })
+  describe('Number of islands', function(){
+    it('should solve basic scenario', function(){
+      var input = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]];
+      var expected = 1;
+      var actual = numberOfIslands(input);
+      assert.equal(actual, expected);
+    })
+    it('should solve basic scenario 2', function(){
+      var input = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]];
+      var expected = 3;
+      var actual = numberOfIslands(input);
+      assert.equal(actual, expected);
+    })
+    it('should return 12', function(){
+      var input = [["0","0","0","0","0","1","0","1","0","0","1"],["0","0","0","0","0","0","0","0","1","0","1"],["0","0","0","0","0","0","0","0","1","0","0"],["0","0","0","0","0","0","0","0","0","0","0"],["0","0","0","0","0","0","0","0","0","1","0"],["0","0","0","0","0","1","0","1","0","1","0"],["0","0","0","0","0","1","1","0","1","1","1"],["0","0","0","0","0","1","0","0","0","1","0"],["0","0","0","0","0","0","1","0","0","0","1"],["0","0","0","0","0","0","1","0","1","0","1"],["0","0","0","0","1","1","1","0","1","1","0"],["1","0","0","0","0","0","0","1","0","0","0"]];
+      var expected = 12;
+      var actual = numberOfIslands(input);
+      assert.equal(actual, expected);
+    });
   })
 })

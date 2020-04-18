@@ -2,6 +2,7 @@ import assert from "assert";
 import productOfArray from "../week3/productOfArray.js";
 import validParenthesis from "../week3/validParenthesis.js";
 import numberOfIslands from "../week3/numberOfIslands.js";
+import minimumPathSum from "../week3/minimumPathSum.js";
 
 describe('Week3', function(){
   describe('productOfArray', function(){
@@ -117,5 +118,19 @@ describe('Week3', function(){
       var actual = numberOfIslands(input);
       assert.equal(actual, expected);
     });
+  })
+  describe('Minimum path sum', function(){
+    it('should solve basic scenario', function(){
+      var input = [[1,3,1],[1,5,1],[4,2,1]];
+      var expected = 7;
+      var actual = minimumPathSum(input);
+      assert.equal(actual, expected);
+    })
+    it('should RETURN 45', function(){
+      var input = [[1,3,1,1,2,4,5,4,7,1],[1,5,1,2,4,5,4,7,2,2],[4,1,2,4,5,4,7,4,5,6],[1,2,4,5,4,4,7,4,5,6],[1,2,4,5,4,4,7,9,4,5],[2,8,2,4,5,4,4,7,2,1],[2,3,1,2,4,5,4,4,7,1],[2,2,3,5,2,4,5,4,4,7],[2,3,2,3,1,2,4,5,4,7],[2,3,2,3,2,3,2,4,5,4]];
+      var expected = 45;
+      var actual = minimumPathSum(input);
+      assert.equal(actual, expected);
+    })
   })
 })

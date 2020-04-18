@@ -132,5 +132,11 @@ describe('Week3', function(){
       var actual = minimumPathSum(input);
       assert.equal(actual, expected);
     })
+    it('should handle 0\'s', function(){
+      var input = [[9,2,8],[6,0,9],[1,0,0]];
+      var expected = 11;
+      var actual = minimumPathSum(input);
+      assert.equal(actual, expected);
+    })
   })
 })

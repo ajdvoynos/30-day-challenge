@@ -19,18 +19,20 @@
  * @return {number}
  */
 export default function(grid) {
-    var minLength = Infinity;
     var traversedNodes = new Map();
-    move(0,0,0);
-    function move(x,y,accWeight){
-      accWeight += grid[x][y];
-      if(x < grid.length - 1) move(x + 1, y, accWeight); //move down
-      if(y < grid[0].length -1 ) move(x, y + 1, accWeight); //move right
-      // traversedNodes.set(x+','+y, accWeight);
-      if(x == grid.length - 1 && y == grid[0].length - 1){
-        minLength = Math.min(accWeight, minLength);
-      }
-      return accWeight;
+    return move();
+    function move(x=0,y=0){
+      if(traversedNodes.has(x+','+y)) return traversedNodes.get(x+','+y);
+      var weightDown = null;
+      var weightRight = null;
+      if(x < grid.length - 1) weightDown = move(x + 1, y); //move down
+      if(y < grid[0].length -1 ) weightRight = move(x, y + 1); //move right
+      
+      if(weightDown == null) weightDown = weightRight;
+      if(weightRight == null) weightRight = weightDown;
+      
+      var nodeWeight = grid[x][y] + Math.min(weightDown, weightRight);
+      traversedNodes.set(x+','+y, nodeWeight);
+      return nodeWeight;
     }
-    return minLength;
 };

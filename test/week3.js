@@ -3,6 +3,7 @@ import productOfArray from "../week3/productOfArray.js";
 import validParenthesis from "../week3/validParenthesis.js";
 import numberOfIslands from "../week3/numberOfIslands.js";
 import minimumPathSum from "../week3/minimumPathSum.js";
+import searchRotatedSortedArray from "../week3/searchRotatedSortedArray.js";
 
 describe('Week3', function(){
   describe('productOfArray', function(){
@@ -136,6 +137,74 @@ describe('Week3', function(){
       var input = [[9,2,8],[6,0,9],[1,0,0]];
       var expected = 11;
       var actual = minimumPathSum(input);
+      assert.equal(actual, expected);
+    })
+  })
+  describe('Search Rotated Sorted Array', function () {
+    it('should solve basic scenario 1', function () {
+      var input = [2,3,4,5,1];
+      var expected = 0;
+      var actual = searchRotatedSortedArray(...[input, input[0]]);
+      assert.equal(actual, expected);
+    })
+    it('should solve basic scenario 2', function () {
+      var input = [3,4,5,1,2];
+      var expected = 0;
+      var actual = searchRotatedSortedArray(...[input, input[0]]);
+      assert.equal(actual, expected);
+    })
+    it('should solve basic scenario 3', function () {
+      var input = [4,5,1,2,3];
+      var expected = 0;
+      var actual = searchRotatedSortedArray(...[input, input[0]]);
+      assert.equal(actual, expected);
+    })
+    it('should solve basic scenario 4', function () {
+      var input = [5,1,2,3,4];
+      var expected = 0;
+      var actual = searchRotatedSortedArray(...[input, input[0]]);
+      assert.equal(actual, expected);
+    })
+    it('should handle non existent items', function () {
+      var input = [4,5,6,7,0,1,2];
+      var expected = -1;
+      var actual = searchRotatedSortedArray(...[input, 3]);
+      assert.equal(actual, expected);
+    })
+    it('should handle empty array', function () {
+      var input = [];
+      var expected = -1;
+      var actual = searchRotatedSortedArray(...[input, 3]);
+      assert.equal(actual, expected);
+    })
+    it('should handle 2 items array', function () {
+      var input = [1,3];
+      var expected = -1;
+      var actual = searchRotatedSortedArray(...[input, 0]);
+      assert.equal(actual, expected);
+    })
+    it('should handle 2 items array 2', function () {
+      var input = [3,1];
+      var expected = 1;
+      var actual = searchRotatedSortedArray(...[input, 1]);
+      assert.equal(actual, expected);
+    })
+    it('should handle 3 items array', function () {
+      var input = [1,3,5];
+      var expected = 1;
+      var actual = searchRotatedSortedArray(...[input, 3]);
+      assert.equal(actual, expected);
+    })
+    it('should handle basic scenario', function () {
+      var input = [4,5,6,7,0,1,2];
+      var expected = 1;
+      var actual = searchRotatedSortedArray(...[input, 5]);
+      assert.equal(actual, expected);
+    })
+    it('should return 4', function () {
+      var input = [4,5,6,7,8,1,2,3];
+      var expected = 4;
+      var actual = searchRotatedSortedArray(...[input, 8]);
       assert.equal(actual, expected);
     })
   })

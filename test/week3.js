@@ -4,6 +4,8 @@ import validParenthesis from "../week3/validParenthesis.js";
 import numberOfIslands from "../week3/numberOfIslands.js";
 import minimumPathSum from "../week3/minimumPathSum.js";
 import searchRotatedSortedArray from "../week3/searchRotatedSortedArray.js";
+import { ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
+import constructBst, { BinaryTreeToArray } from "../week3/constructBst.js";
 
 describe('Week3', function(){
   describe('productOfArray', function(){
@@ -206,6 +208,68 @@ describe('Week3', function(){
       var expected = 4;
       var actual = searchRotatedSortedArray(...[input, 8]);
       assert.equal(actual, expected);
+    })
+  })
+  describe('Construct BST from preordered traversal', function(){
+    it('should have working util BST methods', function(){
+      var arr = [1,2,3,4,null,5,6,7,null,null,8];
+      var root = ArrayToBinaryTree(arr)
+      var output = BinaryTreeToArray(root);
+      assert.deepEqual(output, arr);
+    })
+    it('should have working util BST methods2', function(){
+      var arr = [3,2,null,1];
+      var root = ArrayToBinaryTree(arr)
+      var output = BinaryTreeToArray(root);
+      assert.deepEqual(output, arr);
+    })
+    it('should have working util BST methods3', function(){
+      var arr = [8,7,null,6,null,5,null,4,null,3,null,2,null,1];
+      var root = ArrayToBinaryTree(arr)
+      var output = BinaryTreeToArray(root);
+      assert.deepEqual(output, arr);
+    })
+    it('should have working util BST methods4', function(){
+      var arr = [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8];
+      var root = ArrayToBinaryTree(arr)
+      var output = BinaryTreeToArray(root);
+      assert.deepEqual(output, arr);
+    })
+    // it('should solve example1', function(){
+    //   var input = [8,5,1,7,10,12];
+    //   var expected = [8,5,10,1,7,null,12];
+    //   var actual = BinaryTreeToArray(constructBst(input));
+    //   assert.deepEqual(actual, expected);
+    // })
+    // it('should handle all left side', function(){
+    //   var input = [4,3,2,1];
+    //   var expected = [4,3,null,2,null,1];
+    //   var actual = BinaryTreeToArray(constructBst(input));
+    //   assert.deepEqual(actual, expected);
+    // })
+    // it('should handle all right side', function(){
+    //   var input = [1,2,3,4];
+    //   var expected = [1,null,2,null,3,null,4];
+    //   var actual = BinaryTreeToArray(constructBst(input));
+    //   assert.deepEqual(actual, expected);
+    // })
+    // it('should handle left and right on both sides', function(){
+    //   var input = [8,5,1,7,10,9,12];
+    //   var expected = [8,5,10,1,7,9,12];
+    //   var actual = BinaryTreeToArray(constructBst(input));
+    //   assert.deepEqual(actual, expected);
+    // })
+    it('should handle craziness', function(){
+      var input = [19,4,8,11];
+      var expected = [19,4,null,null,8,null,11];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
+    })
+    it('should handle non standard scenario', function(){
+      var input = [19,8,4,11,13,12,14,20];
+      var expected = [19,8,20,4,11,null,null,null,null,null,13,12,14];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
     })
   })
 })

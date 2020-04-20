@@ -235,30 +235,36 @@ describe('Week3', function(){
       var output = BinaryTreeToArray(root);
       assert.deepEqual(output, arr);
     })
-    // it('should solve example1', function(){
-    //   var input = [8,5,1,7,10,12];
-    //   var expected = [8,5,10,1,7,null,12];
-    //   var actual = BinaryTreeToArray(constructBst(input));
-    //   assert.deepEqual(actual, expected);
-    // })
-    // it('should handle all left side', function(){
-    //   var input = [4,3,2,1];
-    //   var expected = [4,3,null,2,null,1];
-    //   var actual = BinaryTreeToArray(constructBst(input));
-    //   assert.deepEqual(actual, expected);
-    // })
-    // it('should handle all right side', function(){
-    //   var input = [1,2,3,4];
-    //   var expected = [1,null,2,null,3,null,4];
-    //   var actual = BinaryTreeToArray(constructBst(input));
-    //   assert.deepEqual(actual, expected);
-    // })
-    // it('should handle left and right on both sides', function(){
-    //   var input = [8,5,1,7,10,9,12];
-    //   var expected = [8,5,10,1,7,9,12];
-    //   var actual = BinaryTreeToArray(constructBst(input));
-    //   assert.deepEqual(actual, expected);
-    // })
+    it('should have working util BST methods5', function(){
+      var arr = [19,8,20,4,11,null,null,null,null,null,13,12,14];
+      var root = ArrayToBinaryTree(arr)
+      var output = BinaryTreeToArray(root);
+      assert.deepEqual(output, arr);
+    })
+    it('should solve example1', function(){
+      var input = [8,5,1,7,10,12];
+      var expected = [8,5,10,1,7,null,12];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
+    })
+    it('should handle all left side', function(){
+      var input = [4,3,2,1];
+      var expected = [4,3,null,2,null,1];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
+    })
+    it('should handle all right side', function(){
+      var input = [1,2,3,4];
+      var expected = [1,null,2,null,3,null,4];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
+    })
+    it('should handle left and right on both sides', function(){
+      var input = [8,5,1,7,10,9,12];
+      var expected = [8,5,10,1,7,9,12];
+      var actual = BinaryTreeToArray(constructBst(input));
+      assert.deepEqual(actual, expected);
+    })
     it('should handle craziness', function(){
       var input = [19,4,8,11];
       var expected = [19,4,null,null,8,null,11];

@@ -42,19 +42,20 @@ export function BinaryTreeToArray(rootNode) {
  */
 export default function (preorder) {
   var i = 1;
-  return traverse(preorder[0], null)
+  var numsWithoutRight = new Set();
+  return traverse(preorder[0])
   function traverse(curr, prev) {
     if (i > preorder.length) return null;
     var node = new TreeNode(curr);
+    
     if (preorder[i] < curr) {
+      numsWithoutRight.add(curr);
       node.left = traverse(preorder[i++], curr);
     }
-    
+    numsWithoutRight.delete(curr);
     if (preorder[i] > curr) {
-      if (preorder[i] < prev) {
-        node.right = traverse(preorder[i++], curr);
-      } else if(prev == null){
-        node.right = traverse(preorder[i++], null);
+      if(preorder[i] < Math.min(...numsWithoutRight)){
+        node.right = traverse(preorder[i++])
       }
     }
     return node;

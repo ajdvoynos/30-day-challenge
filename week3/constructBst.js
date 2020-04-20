@@ -41,23 +41,44 @@ export function BinaryTreeToArray(rootNode) {
  * @return {TreeNode}
  */
 export default function (preorder) {
-  var i = 1;
-  var numsWithoutRight = new Set();
-  return traverse(preorder[0])
-  function traverse(curr, prev) {
-    if (i > preorder.length) return null;
-    var node = new TreeNode(curr);
-    
-    if (preorder[i] < curr) {
-      numsWithoutRight.add(curr);
-      node.left = traverse(preorder[i++], curr);
+  
+  var root = new TreeNode(preorder[0]);
+  var appendLeaf = function (val, node) {
+    if (!node) {
+      node = new TreeNode(val);
+      return node;
     }
-    numsWithoutRight.delete(curr);
-    if (preorder[i] > curr) {
-      if(preorder[i] < Math.min(...numsWithoutRight)){
-        node.right = traverse(preorder[i++])
+    else {
+      if (val < node.val) {
+        node.left = appendLeaf(val, node.left);
+      } else {
+        node.right = appendLeaf(val, node.right);
       }
     }
     return node;
+  };
+  for (var i = 1; i < preorder.length; i++) {
+    appendLeaf(preorder[i], root);
   }
+  return root;
+  // var i = 1;
+  // var numsWithoutRight = new Set();
+  // return traverse(preorder[0])
+  // function traverse(curr, prev) {
+  //   if (i > preorder.length) return null;
+  //   var node = new TreeNode(curr);
+    
+  //   if (preorder[i] < curr) {
+  //     numsWithoutRight.add(curr);
+  //     node.left = traverse(preorder[i++], curr);
+  //   }
+  //   numsWithoutRight.delete(curr);
+  //   if (preorder[i] > curr) {
+  //     if(preorder[i] < Math.min(...numsWithoutRight)){
+  //       node.right = traverse(preorder[i++])
+  //     }
+  //   }
+  //   return node;
+  // }
+  
 }

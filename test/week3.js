@@ -6,6 +6,7 @@ import minimumPathSum from "../week3/minimumPathSum.js";
 import searchRotatedSortedArray from "../week3/searchRotatedSortedArray.js";
 import { ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
 import constructBst, { BinaryTreeToArray } from "../week3/constructBst.js";
+import leftmostColumnWithOne from "../week3/leftmostColumnWithOne.js";
 
 describe('Week3', function(){
   describe('productOfArray', function(){
@@ -277,5 +278,28 @@ describe('Week3', function(){
     //   var actual = BinaryTreeToArray(constructBst(input));
     //   assert.deepEqual(actual, expected);
     // })
+  })
+  describe('Leftmost column', function(){
+    function BinaryMatrix(arr) {
+      this.arr = arr;
+      this.count = 0;
+      //@param {integer} x, y
+      //@return {integer}
+      this.get = function(x, y) {
+        if(++this.count > 100 ) throw 'Too many gets!'
+        return arr[x][y];
+      };
+      //@return {[integer, integer]}
+      this.dimensions = function() {
+        return [arr.length,arr[0].length];
+      };
+    };
+
+    it('Should solve basic scenario', function(){
+      var input = new BinaryMatrix([[0,0,0,1],[0,1,1,1],[0,0,0,0]]);
+      var expected = 1;
+      var actual = leftmostColumnWithOne(input);
+      assert.deepEqual(actual, expected);
+    });
   })
 })

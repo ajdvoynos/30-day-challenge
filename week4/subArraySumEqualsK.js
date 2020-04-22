@@ -23,20 +23,22 @@
  * @return {number}
  */
 
-export default function(nums, k) {
-  var sums = [];
+export default function (nums, k) {
+  var map = new Map();
   var runningSum = 0;
   var count = 0;
   for (let i = 0; i < nums.length; i++) {
-    sums.push(runningSum+=nums[i]);
-    if(runningSum==k) count++;
+    runningSum += nums[i];
+    if (runningSum == k){
+      count++;
+    } 
+    if (map.has(runningSum - k)){
+      count += map.get(runningSum - k);
+    } 
+
+    var runningSumCount = map.get(runningSum) || 0;
+    map.set(runningSum, runningSumCount + 1);
   }
 
-  for (let start = 1; start < nums.length; start++) {
-    for (let end = start ; end < nums.length; end++) {
-      if(sums[end] - sums[start-1] == k) count++
-    }
-  }
-  
   return count;
 };

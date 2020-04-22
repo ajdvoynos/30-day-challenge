@@ -8,5 +8,17 @@ describe('Week3', function(){
       var actual = subArraySum(...input);
       assert.equal(actual, expected);
     })
+    it('Should solve bigger array', function(){
+      var input = [[6,-4,5,-4,-9,-3,4,4,8,-7,2,0,-10,-9,-3,7],5];
+      var expected = 4;
+      var actual = subArraySum(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle 1 and 0s', function(){
+      var input = [[1,0,1,0,1,0,1],1];
+      var expected = 12;
+      var actual = subArraySum(...input);
+      assert.equal(actual, expected);
+    })
   })
 });

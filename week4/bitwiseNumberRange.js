@@ -16,9 +16,6 @@
  * @return {number}
  */
 export default function (m, n) {
-  if (m == 0) return 0;
-  if (m == n) return m;
-
   //Find left most bit for n
   for (var leftIndex = 0; n >> leftIndex > 0; leftIndex++);
 

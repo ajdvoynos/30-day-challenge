@@ -1,6 +1,7 @@
 import assert from "assert";
 import subArraySum from "../week4/subArraySumEqualsK.js"
 import bitwiseNumberRange from "../week4/bitwiseNumberRange.js";
+import LRUCache from "../week4/lruCache.js";
 describe('Week3', function(){
   describe('Sub Array sum equals K', function(){
     it('Should solve example1', function(){
@@ -65,5 +66,26 @@ describe('Week3', function(){
       var actual = bitwiseNumberRange(...input);
       assert.equal(actual, expected);
     })
+  })
+  describe('LRU Cache', function(){
+    it('Should solve example 1', function(){
+      var input1 = ["LRUCache","put","put","put","get","put", "get","get"];
+      var input2 = [[2],[1,1],[2,2],[3,3],[2],[4,4],[2],[3]];
+      var expected = [null,null,null,null,2,null,2,-1];
+      var actual = [];
+      var cache;
+      for (let i = 0; i < input1.length; i++) {
+        switch (input1[i]) {
+          case "LRUCache":
+            cache = new LRUCache(...input2[i]);
+            actual.push(null);
+            break;
+          default:
+            actual.push(cache[input1[i]](...input2[i]) || null);
+            break;
+        }
+      };
+      assert.deepEqual(actual,expected);
+    });
   })
 });

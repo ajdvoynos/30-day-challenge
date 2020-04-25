@@ -2,6 +2,7 @@ import assert from "assert";
 import subArraySum from "../week4/subArraySumEqualsK.js"
 import bitwiseNumberRange from "../week4/bitwiseNumberRange.js";
 import LRUCache from "../week4/lruCache.js";
+import canJump from "../week4/jumpGame.js";
 describe('Week3', function(){
   describe('Sub Array sum equals K', function(){
     it('Should solve example1', function(){
@@ -87,5 +88,19 @@ describe('Week3', function(){
       };
       assert.deepEqual(actual,expected);
     });
+  })
+  describe('Can Jump', function(){
+    it('Should solve example 1', function(){
+      var input = [2,3,1,1,4];
+      var expected = true;
+      var actual = canJump(input);
+      assert.equal(actual, expected);
+    })
+    it('Should solve example 2', function(){
+      var input = [3,2,1,0,4];
+      var expected = false;
+      var actual = canJump(input);
+      assert.equal(actual, expected);
+    })
   })
 });

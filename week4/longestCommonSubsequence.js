@@ -42,28 +42,18 @@
  * @return {number}
  */
 var longestCommonSubsequence = function (text1, text2) {
-  var map = new Map();
-  return recursiveSum(text1, text2);
+  var map = [];
   
-  function recursiveSum(sub1, sub2) {
-    if(map.has(sub1 + ',' + sub2)) return map.get(sub1 + ',' + sub2);
-    
-    if(sub1.length == 0 || sub2.length == 0) return 0;
-
-    //Check last letter and continue moving left from there
-    if(sub1[sub1.length-1] == sub2[sub2.length-1]){
-      var sum = recursiveSum(sub1.substring(0, sub1.length-1), sub2.substring(0, sub2.length-1)) + 1;
-      map.set(sub1 + ',' + sub2, sum);
-      return sum;
-    }else{
-      //didnt match, so try removing one from one side, and from the other side
-      var sum1 = recursiveSum(sub1.substring(0,sub1.length-1),sub2);
-      var sum2 = recursiveSum(sub1,sub2.substring(0,sub2.length-1));
-      map.set(sub1.substring(0,sub1.length-1) + ',' + sub2, sum1);
-      map.set(sub1 + ',' + sub2.substring(0,sub2.length-1), sum2);
-      return Math.max(sum1,sum2);
+  for (let i = 0; i <= text1.length; i++) {
+    map[i] = [];
+    for (let j = 0; j <= text2.length; j++) {
+      if(i==0 || j == 0) map[i][j] = 0
+      else if (text1[i-1]==text2[j-1]) map[i][j] = map[i-1][j-1]+1
+      else map[i][j] = Math.max(map[i-1][j], map[i][j-1]);
     }
   }
+
+  return map[text1.length][text2.length];
 };
 
 export default longestCommonSubsequence;

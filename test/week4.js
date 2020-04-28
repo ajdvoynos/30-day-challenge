@@ -4,6 +4,7 @@ import bitwiseNumberRange from "../week4/bitwiseNumberRange.js";
 import LRUCache from "../week4/lruCache.js";
 import canJump from "../week4/jumpGame.js";
 import longestCommonSubsequence from "../week4/longestCommonSubsequence.js";
+import maximalSquare from "../week4/maximalSquare.js";
 describe('Week3', function(){
   describe('Sub Array sum equals K', function(){
     it('Should solve example1', function(){
@@ -123,5 +124,50 @@ describe('Week3', function(){
       var actual = longestCommonSubsequence(...input);
       assert.equal(actual, expected);
     })
+  })
+  describe('Maximal square', function(){
+    it('Should solve example 1', function(){
+      var input = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]];
+      var expected = 4;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle empty array', function(){
+      var input = [];
+      var expected = 0;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle example2', function(){
+      var input = [[1,1],[1,1]];
+      var expected = 4;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle size 9 box', function(){
+      var input = [["1","1","1","1"],["1","1","1","1"],["1","1","1","1"]];
+      var expected = 9;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle size 16 box', function(){
+      var input = [["1","1","1","1","1","1","1","1"],["1","1","1","1","1","1","1","0"],["1","1","1","1","1","1","1","0"],["1","1","1","1","1","0","0","0"],["0","1","1","1","1","0","0","0"]];
+      var expected = 16;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle size 9 box', function(){
+      var input = [["0","1","1","0","1"],["1","1","0","1","0"],["0","1","1","1","0"],["1","1","1","1","0"],["1","1","1","1","1"],["0","0","0","0","0"]];
+      var expected = 9;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle size 4 box', function(){
+      var input = [["1","0","1","0"],["1","0","1","1"],["1","0","1","1"],["1","1","1","1"]];
+      var expected = 4;
+      var actual = maximalSquare(input);
+      assert.equal(actual, expected);
+    })
+
   })
 });

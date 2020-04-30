@@ -1,6 +1,7 @@
 import assert from 'assert'
 import maxPathSum from '../week5/binaryTreeMaximumPathSum.js';
 import { ArrayToBinaryTree } from '../week2/binaryTreeDiameter.js';
+import isValidSequence from '../week5/validSequenceToLeavesBinaryTree.js';
 
 describe('Week5', function () {
   describe('Binary Tree Maximum Path Sum', function () {
@@ -38,6 +39,26 @@ describe('Week5', function () {
       var input = ArrayToBinaryTree([5,4,8,11,null,13,4,7,2,null,null,null,1]);
       var expected = 48;
       var actual = maxPathSum(input);
+      assert.equal(actual, expected);
+    });
+  });
+  describe('Valid sequence from root to leaf', function () {
+    it('Should solve example 1', function () {
+      var input = [ArrayToBinaryTree([0,1,0,0,1,0,null,null,1,0,0]), [0,1,0,1]];
+      var expected = true;
+      var actual = isValidSequence(...input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 2', function () {
+      var input = [ArrayToBinaryTree([0,1,0,0,1,0,null,null,1,0,0]), [0,0,1]];
+      var expected = false;
+      var actual = isValidSequence(...input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 3', function () {
+      var input = [ArrayToBinaryTree([0,1,0,0,1,0,null,null,1,0,0]), [0,1,1]];
+      var expected = false;
+      var actual = isValidSequence(...input);
       assert.equal(actual, expected);
     });
   });

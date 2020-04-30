@@ -19,4 +19,4 @@ Things started to get hard. I could no longer solve any problems in less than an
 Got a couple of much appreciated easy problems this week. There were 2 hard ones though that took a toll. Longest common subsequence and maximal square. I spent way too much time working on a dumb approach for maximal square and then the solution just hit me and solved it in 10 minutes. And longest common subsequence was just a painful experience all around.
 
 ### Week5
-The end is so close but I felt so burned out from the last 2 weeks. Hopefully the 2 binary tree problems were super easy, even though one of them was marked as hard, and I managed to solve both in 15 minutes.
+The end is nigh! But I feel so burned out from the last 2 weeks. Thankfully the 2 binary tree problems were super easy, even though one of them was marked as hard, and I managed to solve both in 15 minutes. GG 😁

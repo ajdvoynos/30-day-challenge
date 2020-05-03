@@ -1,6 +1,7 @@
 import firstBadVersion from "../week6/firstBadVersion.js";
 import assert from "assert";
 import numJewelsInStones from "../week6/jewelsAndStones.js";
+import canConstruct from "../week6/ransomNotes.js";
 
 describe('Week 6', function () {
   describe('First bad version', function () {
@@ -31,4 +32,42 @@ describe('Week 6', function () {
       assert.equal(actual, expected);
     });
   });
+  describe('Ransom note', function () {
+    it('Should solve example 1', function () {
+      var input = ['a','b'];
+      var expected = false;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should solve example 2', function () {
+      var input = ['aa','ab'];
+      var expected = false;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should solve example 3', function () {
+      var input = ['aa','aab'];
+      var expected = true;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should solve empty magazine', function () {
+      var input = ['a',''];
+      var expected = false;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle both empty', function () {
+      var input = ['',''];
+      var expected = true;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+    it('Should handle 1 element note', function () {
+      var input = ['i','dgbcacfbeaghfb'];
+      var expected = false;
+      var actual = canConstruct(...input);
+      assert.equal(actual, expected);
+    })
+  })
 });

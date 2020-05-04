@@ -2,6 +2,7 @@ import firstBadVersion from "../week6/firstBadVersion.js";
 import assert from "assert";
 import numJewelsInStones from "../week6/jewelsAndStones.js";
 import canConstruct from "../week6/ransomNotes.js";
+import findComplement from "../week6/numberComplement.js";
 
 describe('Week 6', function () {
   describe('First bad version', function () {
@@ -70,4 +71,18 @@ describe('Week 6', function () {
       assert.equal(actual, expected);
     })
   })
+  describe('Number complement', function () {
+    it('Should solve example 1', function () {
+      var input = 5;
+      var expected = 2;
+      var actual = findComplement(input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 1', function () {
+      var input = 1;
+      var expected = 0;
+      var actual = findComplement(input);
+      assert.equal(actual, expected);
+    });
+  });
 });

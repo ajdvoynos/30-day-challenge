@@ -26,10 +26,11 @@
  * @return {number}
  */
 var findComplement = function (num) {
-  
-  for (var i = num, significantBit = 0; i > 0; i = i>>1,significantBit++);
+
+  //for (var i = num, significantBit = 0; i > 0; i = i>>1,significantBit++);
+  var significantBit = num.toString(2).length;
   return ~num << 32 - significantBit >> 32 - significantBit;
-  
+
 };
 
 export default findComplement;

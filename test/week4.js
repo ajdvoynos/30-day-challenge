@@ -6,7 +6,8 @@ import canJump from "../week4/jumpGame.js";
 import longestCommonSubsequence from "../week4/longestCommonSubsequence.js";
 import maximalSquare from "../week4/maximalSquare.js";
 import FirstUnique from "../week4/firstUniqueNumber.js";
-describe('Week3', function(){
+
+describe('Week4', function(){
   describe('Sub Array sum equals K', function(){
     it('Should solve example1', function(){
       var input = [[1,1,1],2];

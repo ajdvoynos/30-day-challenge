@@ -3,6 +3,7 @@ import assert from "assert";
 import numJewelsInStones from "../week6/jewelsAndStones.js";
 import canConstruct from "../week6/ransomNotes.js";
 import findComplement from "../week6/numberComplement.js";
+import firstUniqChar from "../week6/firstUniqueChar.js";
 
 describe('Week 6', function () {
   describe('First bad version', function () {
@@ -82,6 +83,20 @@ describe('Week 6', function () {
       var input = 1;
       var expected = 0;
       var actual = findComplement(input);
+      assert.equal(actual, expected);
+    });
+  });
+  describe('First Unique Char', function () {
+    it('Should solve example1', function () {
+      var input = 'leetcode';
+      var expected = 0;
+      var actual = firstUniqChar(input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example2', function () {
+      var input = 'loveleetcode';
+      var expected = 2;
+      var actual = firstUniqChar(input);
       assert.equal(actual, expected);
     });
   });

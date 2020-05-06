@@ -4,6 +4,7 @@ import numJewelsInStones from "../week6/jewelsAndStones.js";
 import canConstruct from "../week6/ransomNotes.js";
 import findComplement from "../week6/numberComplement.js";
 import firstUniqChar from "../week6/firstUniqueChar.js";
+import majorityElement from "../week6/majorityElement.js";
 
 describe('Week 6', function () {
   describe('First bad version', function () {
@@ -97,6 +98,20 @@ describe('Week 6', function () {
       var input = 'loveleetcode';
       var expected = 2;
       var actual = firstUniqChar(input);
+      assert.equal(actual, expected);
+    });
+  });
+  describe('Majority element', function () {
+    it('Should solve example 1', function () {
+      var input = [3,2,3]
+      var expected = 3
+      var actual = majorityElement(input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 2', function () {
+      var input = [2,2,1,1,1,2,2]
+      var expected = 2
+      var actual = majorityElement(input);
       assert.equal(actual, expected);
     });
   });

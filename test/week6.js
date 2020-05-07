@@ -5,6 +5,8 @@ import canConstruct from "../week6/ransomNotes.js";
 import findComplement from "../week6/numberComplement.js";
 import firstUniqChar from "../week6/firstUniqueChar.js";
 import majorityElement from "../week6/majorityElement.js";
+import isCousins from "../week6/cousinsBinaryTree.js";
+import { ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
 
 describe('Week 6', function () {
   describe('First bad version', function () {
@@ -112,6 +114,26 @@ describe('Week 6', function () {
       var input = [2,2,1,1,1,2,2]
       var expected = 2
       var actual = majorityElement(input);
+      assert.equal(actual, expected);
+    });
+  });
+  describe('Cousins binary tree', function () {
+    it('Should solve example 1', function () {
+      var input = [ArrayToBinaryTree([1,2,3,4]), 4, 3];
+      var expected = false
+      var actual = isCousins(...input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 2', function () {
+      var input = [ArrayToBinaryTree([1,2,3,null,4,null,5]), 5, 4];
+      var expected = true
+      var actual = isCousins(...input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 3', function () {
+      var input = [ArrayToBinaryTree([1,2,3,null,4]), 2, 3];
+      var expected = false
+      var actual = isCousins(...input);
       assert.equal(actual, expected);
     });
   });

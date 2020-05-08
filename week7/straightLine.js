@@ -23,14 +23,12 @@
 var checkStraightLine = function (coordinates) {
   if (coordinates.length == 2) return true;
 
-  var p1 = coordinates.shift();
-  var p2 = coordinates.shift();
-  var lineFn = getLineFunction(p1,p2);
+  var lineFn = getLineFunction(coordinates[0],coordinates[1]);
   var equation = null;
   if(lineFn){
     equation = (p) => lineFn(p[0]) === p[1];
   }else{
-    equation = (p) => p[0] === p1[0];
+    equation = (p) => p[0] === coordinates[0][0];
   }
   
   return coordinates.every(equation);

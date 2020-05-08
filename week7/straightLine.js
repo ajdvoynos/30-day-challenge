@@ -23,19 +23,16 @@
 var checkStraightLine = function (coordinates) {
   if (coordinates.length == 2) return true;
 
-  var lineFn = getLineFunction(coordinates[0],coordinates[1]);
+  var lineFn = getLineFunction(coordinates[0], coordinates[1]);
   var equation = null;
-  if(lineFn){
+  if (lineFn) {
     equation = (p) => lineFn(p[0]) === p[1];
-  }else{
+  } else {
     equation = (p) => p[0] === coordinates[0][0];
   }
-  
+
   return coordinates.every(equation);
 
-  /**
-   * Returns 
-   */
   function getLineFunction(p1, p2) {
     //f(x) = mx + b
     var m = getSlope(p1, p2);

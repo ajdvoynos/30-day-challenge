@@ -21,6 +21,30 @@ describe('Week7', function () {
       var actual = checkStraightLine(input);
       assert.equal(actual, expected);
     });
+    it('Should handle vertical lines', function () {
+      var input = [[4,1],[4,2],[4,3],[4,4]];
+      var expected = true;
+      var actual = checkStraightLine(input);
+      assert.equal(actual, expected);
+    });
+    it('Should handle parallel vertical lines', function () {
+      var input = [[4,1],[4,2],[4,3],[7,1],[7,2],[7,3]];
+      var expected = false;
+      var actual = checkStraightLine(input);
+      assert.equal(actual, expected);
+    });
+    it('Should handle horizontal', function () {
+      var input = [[1,4],[2,4],[3,4],[4,4]];
+      var expected = true;
+      var actual = checkStraightLine(input);
+      assert.equal(actual, expected);
+    });
+    it('Should handle parallel horizontal lines', function () {
+      var input = [[1,4],[2,4],[1,8],[2,8]];
+      var expected = false;
+      var actual = checkStraightLine(input);
+      assert.equal(actual, expected);
+    });
     
   });  
 });

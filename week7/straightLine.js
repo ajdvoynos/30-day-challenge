@@ -23,22 +23,31 @@
 var checkStraightLine = function (coordinates) {
   if (coordinates.length == 2) return true;
 
-  var initialSlope = getSlope(coordinates[0], coordinates[1]);
-  for (let i = 2; i < coordinates.length; i++) {
-    var p2 = coordinates[i];
-    var slope = getSlope(coordinates[0], p2);
-    if (Math.abs(slope) != Math.abs(initialSlope)) return false;
+  var p1 = coordinates.shift();
+  var p2 = coordinates.shift();
+  var lineFn = getLineFunction(p1,p2);
+  var equation = null;
+  if(lineFn){
+    equation = (p) => lineFn(p[0]) === p[1];
+  }else{
+    equation = (p) => p[0] === p1[0];
   }
-  //If we made it this far return true
-  return true;
+  
+  return coordinates.every(equation);
+
+  /**
+   * Returns 
+   */
+  function getLineFunction(p1, p2) {
+    //f(x) = mx + b
+    var m = getSlope(p1, p2);
+    if (m == Infinity) return undefined;
+    var b = p1[1] - m * p1[0];
+    return (x) => m * x + b;
+  }
 
   function getSlope(p1, p2) {
-    try {
-      return (p2[1] - p1[1]) / (p2[0] - p1[0]);
-    } catch (error) {
-      //Vertical slope is undefined 🤷‍♂️
-      return undefined;
-    }
+    return (p2[1] - p1[1]) / (p2[0] - p1[0]);
   }
 };
 

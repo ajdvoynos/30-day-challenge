@@ -20,32 +20,26 @@
  * @param {number[][]} coordinates
  * @return {boolean}
  */
-var checkStraightLine = function(coordinates) {
-    if(coordinates.length == 2) return true;
+var checkStraightLine = function (coordinates) {
+  if (coordinates.length == 2) return true;
 
-    var initialSlope = getSlope(coordinates[0], coordinates[1]);
-    for (let i = 2; i < coordinates.length; i++) {
-      var p1 = coordinates[i];
-      var p2 = coordinates[i+1];
-      if(!p2){
-        p2 = coordinates[i-1];
-      }
-      //To increment i by 2. Not the same as putting it on the for loop above
-      i++;
-      var slope = getSlope(p1, p2);
-      if(Math.abs(slope) != Math.abs(initialSlope)) return false;
+  var initialSlope = getSlope(coordinates[0], coordinates[1]);
+  for (let i = 2; i < coordinates.length; i++) {
+    var p2 = coordinates[i];
+    var slope = getSlope(coordinates[0], p2);
+    if (Math.abs(slope) != Math.abs(initialSlope)) return false;
+  }
+  //If we made it this far return true
+  return true;
+
+  function getSlope(p1, p2) {
+    try {
+      return (p2[1] - p1[1]) / (p2[0] - p1[0]);
+    } catch (error) {
+      //Vertical slope is undefined 🤷‍♂️
+      return undefined;
     }
-    //If we made it this far return true
-    return true;
-    
-    function getSlope(p1,p2){
-      try {
-        return (p2[1] - p1[1]) / (p2[0] - p1[0]);  
-      } catch (error) {
-        //Vertical slope is undefined 🤷‍♂️
-        return undefined;
-      }
-    }
+  }
 };
 
 export default checkStraightLine;

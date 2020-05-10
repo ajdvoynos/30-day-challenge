@@ -1,5 +1,6 @@
 import assert from "assert";
 import checkStraightLine from "../week7/straightLine.js";
+import isPerfectSquare from "../week7/validPerfectSquare.js";
 
 describe('Week7', function () {
   describe('Straight Line', function () {
@@ -21,6 +22,19 @@ describe('Week7', function () {
       var actual = checkStraightLine(input);
       assert.equal(actual, expected);
     });
-    
-  });  
+  });
+  describe('Perfect square', function () {
+    it('Should solve example 1', function () {
+      var input = 16;
+      var expected = true;
+      var actual = isPerfectSquare(input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 2', function () {
+      var input = 14;
+      var expected = false;
+      var actual = isPerfectSquare(input);
+      assert.equal(actual, expected);
+    });
+  });
 });

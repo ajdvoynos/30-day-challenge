@@ -8,7 +8,7 @@ import majorityElement from "../week6/majorityElement.js";
 import isCousins from "../week6/cousinsBinaryTree.js";
 import { ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
 
-describe('Week 6', function () {
+describe('Week6', function () {
   describe('First bad version', function () {
     it('Should solve example 1', function () {
       var input = 5;

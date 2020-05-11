@@ -34,31 +34,26 @@
  * @return {number[][]}
  */
 var floodFill = function (image, sr, sc, newColor) {
-  var set = new Set();
+  var visitedSquares = new Array(image.length).fill(false).map(() => new Array(image[0].length).fill(false));
   var copy = image.map(x=> x.slice());
   var targetColor = image[sr][sc];
-  mark1s(sr,sc);
+  paintCells(sr,sc);
 
   return copy;
 
-  function mark1s(i, j) {
+  function paintCells(i, j) {
     copy[i][j] = newColor;
     //search left right up and down and add them to set
-    var key = getkey(i, j)
-    if (set.has(key)) return;
-    set.add(key);
+    if (visitedSquares[i][j]) return;
+    visitedSquares[i][j] = true;
 
-    if (image[i + 1] && image[i + 1][j] == targetColor) mark1s(i + 1, j)
+    if (image[i + 1] && image[i + 1][j] == targetColor) paintCells(i + 1, j)
 
-    if (image[i - 1] && image[i - 1][j] == targetColor) mark1s(i - 1, j)
+    if (image[i - 1] && image[i - 1][j] == targetColor) paintCells(i - 1, j)
 
-    if (image[i][j + 1] == targetColor) mark1s(i, j + 1)
+    if (image[i][j + 1] == targetColor) paintCells(i, j + 1)
 
-    if (image[i][j - 1] == targetColor) mark1s(i, j - 1)
-  }
-
-  function getkey(i, j) {
-    return i + ',' + j;
+    if (image[i][j - 1] == targetColor) paintCells(i, j - 1)
   }
 };
 

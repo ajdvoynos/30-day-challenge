@@ -1,10 +1,10 @@
 import assert from "assert";
-import checkStraightLine from "../week7/straightLine.js";
-import isPerfectSquare from "../week7/validPerfectSquare.js";
-import findJudge from "../week7/findTownJudge.js";
-import floodFill from "../week7/floodFill.js";
+import checkStraightLine from "../week2/straightLine.js";
+import isPerfectSquare from "../week2/validPerfectSquare.js";
+import findJudge from "../week2/findTownJudge.js";
+import floodFill from "../week2/floodFill.js";
 
-describe('Week7', function () {
+describe('Week2', function () {
   describe('Straight Line', function () {
     it('Should solve example 1', function () {
       var input = [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]];

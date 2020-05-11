@@ -1,5 +1,5 @@
 import assert from 'assert';
-import twoSum from '../randomProblems/twoSum.js';
+import twoSum from '../twoSum.js';
 
 describe('randomProblems', function () {
   describe('twoSum', function () {

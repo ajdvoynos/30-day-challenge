@@ -1,14 +1,14 @@
-import firstBadVersion from "../week6/firstBadVersion.js";
+import firstBadVersion from "../week1/firstBadVersion.js";
 import assert from "assert";
-import numJewelsInStones from "../week6/jewelsAndStones.js";
-import canConstruct from "../week6/ransomNotes.js";
-import findComplement from "../week6/numberComplement.js";
-import firstUniqChar from "../week6/firstUniqueChar.js";
-import majorityElement from "../week6/majorityElement.js";
-import isCousins from "../week6/cousinsBinaryTree.js";
-import { ArrayToBinaryTree } from "../week2/binaryTreeDiameter.js";
+import numJewelsInStones from "../week1/jewelsAndStones.js";
+import canConstruct from "../week1/ransomNotes.js";
+import findComplement from "../week1/numberComplement.js";
+import firstUniqChar from "../week1/firstUniqueChar.js";
+import majorityElement from "../week1/majorityElement.js";
+import isCousins from "../week1/cousinsBinaryTree.js";
+import { ArrayToBinaryTree } from "../../AprilChallenge/week2/binaryTreeDiameter.js";
 
-describe('Week6', function () {
+describe('Week1', function () {
   describe('First bad version', function () {
     it('Should solve example 1', function () {
       var input = 5;

@@ -1,4 +1,4 @@
-import happy from './happy.js';
+import happy from '../AprilChallenge/week1/happy.js';
 import fs from 'fs';
 
 fs.open('output.txt', 'a', (err, fd) => {

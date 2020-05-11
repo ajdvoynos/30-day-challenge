@@ -27,7 +27,8 @@
         "--reporter",
         "list",
         "--colors",
-        "${workspaceFolder}/test"
+        "--recursive",
+        "${workspaceFolder}/*/test/*.js"
       ],
       "internalConsoleOptions": "openOnSessionStart",
       "skipFiles": [

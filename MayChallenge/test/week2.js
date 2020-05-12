@@ -3,6 +3,7 @@ import checkStraightLine from "../week2/straightLine.js";
 import isPerfectSquare from "../week2/validPerfectSquare.js";
 import findJudge from "../week2/findTownJudge.js";
 import floodFill from "../week2/floodFill.js";
+import singleNonDuplicate from "../week2/singleElementSortedArray.js";
 
 describe('Week2', function () {
   describe('Straight Line', function () {
@@ -105,6 +106,26 @@ describe('Week2', function () {
       var expected = [[2,2,2],[2,2,0],[2,0,1]];
       var actual = floodFill(...input);
       assert.deepEqual(actual, expected);
+    });
+  });
+  describe('Single Element Sorted Array', function () {
+    it('Should solve example 1', function () {
+      var input = [1,1,2,3,3,4,4,8,8];
+      var expected = 2;
+      var actual = singleNonDuplicate(input);
+      assert.equal(actual, expected);
+    });
+    it('Should solve example 2', function () {
+      var input = [3,3,7,7,10,11,11];
+      var expected = 10;
+      var actual = singleNonDuplicate(input);
+      assert.equal(actual, expected);
+    });
+    it('Should handle 1 element array', function () {
+      var input = [3];
+      var expected = 3;
+      var actual = singleNonDuplicate(input);
+      assert.equal(actual, expected);
     });
   });
 });

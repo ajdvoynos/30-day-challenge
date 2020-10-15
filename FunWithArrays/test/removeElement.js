@@ -1,6 +1,6 @@
 import assert from "assert";
-import removeDuplicates from "../deleting items/removeDuplicates.js";
-import removeElement from "../deleting items/removeElement.js";
+import removeDuplicates from "../deleting/removeDuplicates.js";
+import removeElement from "../deleting/removeElement.js";
 
 describe('Deleting items', () => {
     describe('Remove Element', () => {

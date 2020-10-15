@@ -1,6 +1,6 @@
 import assert from "assert";
-import duplicateZeros from "../inserting items/duplicateZeroes.js";
-import merge from "../inserting items/mergeSorted.js";
+import duplicateZeros from "../inserting/duplicateZeroes.js";
+import merge from "../inserting/mergeSorted.js";
 
 describe('InsertingItems', () => {
     describe('Duplicate Zeroes', () => {

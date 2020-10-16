@@ -1,6 +1,7 @@
 import assert from "assert";
 import moveZeroes from "../replace/moveZeroes.js";
 import replaceElements from "../replace/replaceWithGreatest.js";
+import sortArrayByParity from "../replace/sortByParity.js";
 
 describe('Replacing Items', () => {
     describe('Replace with greatest on right side', () => {
@@ -25,6 +26,15 @@ describe('Replacing Items', () => {
             //Function should update input 🙄
             moveZeroes(input);
             assert.deepStrictEqual(input, expected);
+        });
+    });
+    describe('Sort by parity', () => {
+        it('Should solve example 1', () => {
+            var input = [3,1,2,4];
+            var expected = [2,4,1,3];
+            //Function should update input 🙄
+            var actual = sortArrayByParity(input);
+            assert.deepStrictEqual(actual, expected);
         });
     });
 });

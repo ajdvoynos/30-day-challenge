@@ -19,12 +19,17 @@
  * @return {number[]}
  */
 var replaceElements = function(arr) {
-    var max = 0;
-    return arr.reduceRight((acc, curr, i)=> {
-        var ret = (i == arr.length -1) ? -1 : max; //Return -1 for last element
-        max = Math.max(curr, max);
-        return acc.concat(ret);
-    }, []).reverse();
+    var l = arr.length;
+    var max = arr[l - 1];
+    arr[l-1] = -1;
+    
+    for (var i = l - 2; i >= 0; i--) {
+        var newMax = Math.max(arr[i], max);
+        arr[i] = max;
+        max = newMax;
+    }
+
+    return arr;
 };
 
 export default replaceElements;

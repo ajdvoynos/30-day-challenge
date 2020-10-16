@@ -19,11 +19,9 @@
  * @return {number[]}
  */
 var replaceElements = function(arr) {
-    var l = arr.length;
-    var max = arr[l - 1];
-    arr[l-1] = -1;
+    var max = -1;
     
-    for (var i = l - 2; i >= 0; i--) {
+    for (var i = arr.length - 1; i >= 0; i--) {
         var newMax = Math.max(arr[i], max);
         arr[i] = max;
         max = newMax;
